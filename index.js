@@ -1,6 +1,6 @@
 const https = require("https")
 
-https.get('https://jsonplaceholder.typicode.com/posts', (response) => {
+https.get('https://api.telegram.org/bot6377274441:AAHoE6irgDgvd3jxqqYZxCACEtsFGDa6I1w/getMe', (response) => {
   response.setEncoding('utf-8')
 
   let data = "";
