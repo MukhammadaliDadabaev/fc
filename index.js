@@ -1,6 +1,6 @@
 const https = require("https")
 
-https.get('https://jsonplaceholder.typicode.com/todos/1', (response) => {
+https.get('https://jsonplaceholder.typicode.com/posts', (response) => {
   response.setEncoding('utf-8')
 
   let data = "";
