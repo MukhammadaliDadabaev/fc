@@ -1,52 +1,13 @@
-const {
-  rejects
-} = require("assert");
-const https = require("https");
-const {
-  resolve
-} = require("path");
+import axios from "axios";
 
-function getUpdates() {
-  https.get('https://api.telegram.org/bot6377274441:AAHoE6irgDgvd3jxqqYZxCACEtsFGDa6I1w/getUpdates', (response) => {
-    response.setEncoding('utf-8')
+async function TelegramBot() {
+  let updates = await axios.get('https://api.telegram.org/bot6377274441:AAHoE6irgDgvd3jxqqYZxCACEtsFGDa6I1w/getUpdates')
 
-    let data = "";
-    response.on('data', (chunk) => {
-      data = data + chunk;
-    })
+  // if (!updates ? data ? ok) return;
 
-    response.on('end', () => {
-      try {
-        let obj = JSON.parse(data)
-        console.log(obj);
-      } catch (error) {
-        console.log(error.message);
-      }
-    })
-  })
+  updates.data.result.forEach(element => {
+    console.log(element);
+  });
 }
-getUpdates()
 
-// Promise
-let m = new Promise((resolve, rejects) => {
-  setTimeout(() => {
-    // resolve(1982)
-    rejects("Error qaytaradi...")
-  }, 3000)
-})
-
-//------------> ASYNCHIRON-USULI
-// async function main() {
-//   try {
-//     let a = await m;
-//     console.log(a);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
-// main()
-
-//------------> then 
-m.then(result => console.log(result))
-  .catch(err => console.log(err))
+TelegramBot()
