@@ -30,13 +30,23 @@ getUpdates()
 // Promise
 let m = new Promise((resolve, rejects) => {
   setTimeout(() => {
-    resolve(1982)
+    // resolve(1982)
+    rejects("Error qaytaradi...")
   }, 3000)
 })
 
-async function main() {
-  let a = await m;
-  console.log(a);
-}
+//------------> ASYNCHIRON-USULI
+// async function main() {
+//   try {
+//     let a = await m;
+//     console.log(a);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-main()
+// main()
+
+//------------> then 
+m.then(result => console.log(result))
+  .catch(err => console.log(err))
