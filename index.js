@@ -1,27 +1,17 @@
-import axios, {
-  formToJSON
-} from "axios";
+import TelegramBot from "node-telegram-bot-api";
 
-async function TelegramBot() {
-  let updates = await axios.get('https://api.telegram.org/bot6377274441:AAHoE6irgDgvd3jxqqYZxCACEtsFGDa6I1w/getUpdates')
+const bot = new TelegramBot('6377274441:AAHoE6irgDgvd3jxqqYZxCACEtsFGDa6I1w', {
+  polling: true
+})
 
-  for (let message of updates.data.result) {
-    sendRequest("sendMessage", {
-      chat_id: message.message.chat.id,
-      // text: "<b>ASSALAMU ALAYKUM</b>",
-      text: "*bold \*ASSALAMU ALAYKUM*",
-      disable_notification: true,
-      reply_to_message_id: message.message.message_id,
-      parse_mode: "html"
-    })
-  }
+// bot.getMe().then((m) => {
+//   console.log(m)
+// })
 
-}
+// bot.on("message", (updated) => {
+//   console.log(updated)
+// })
 
-TelegramBot()
-
-async function sendRequest(methodName, options) {
-  let response = await axios.post("https://api.telegram.org/bot6377274441:AAHoE6irgDgvd3jxqqYZxCACEtsFGDa6I1w/" + methodName, options)
-
-  return response.data;
-}
+bot.on("message", (updated) => {
+  bot.sendMessage(updated.chat.id, "ASSALAMU ALAYKUM")
+})
