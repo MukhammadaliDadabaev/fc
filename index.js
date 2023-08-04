@@ -1,8 +1,8 @@
 import TelegramBot from "node-telegram-bot-api";
 
-const bot = new TelegramBot('6377274441:AAHoE6irgDgvd3jxqqYZxCACEtsFGDa6I1w', {
-  polling: true
-})
+const bot = new TelegramBot("6377274441:AAHoE6irgDgvd3jxqqYZxCACEtsFGDa6I1w", {
+  polling: true,
+});
 
 // bot.getMe().then((m) => {
 //   console.log(m)
@@ -13,5 +13,5 @@ const bot = new TelegramBot('6377274441:AAHoE6irgDgvd3jxqqYZxCACEtsFGDa6I1w', {
 // })
 
 bot.on("message", (updated) => {
-  bot.sendMessage(updated.chat.id, "ASSALAMU ALAYKUM")
-})
+  bot.sendMessage(updated.chat.id, "ASSALAMU ALAYKUM");
+});
