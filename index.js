@@ -4,14 +4,10 @@ const bot = new TelegramBot("6377274441:AAHoE6irgDgvd3jxqqYZxCACEtsFGDa6I1w", {
   polling: true,
 });
 
-// bot.getMe().then((m) => {
-//   console.log(m)
-// })
-
-// bot.on("message", (updated) => {
-//   console.log(updated)
-// })
-
 bot.on("message", (updated) => {
-  bot.sendMessage(updated.chat.id, "ASSALAMU ALAYKUM");
+  bot.sendMessage(updated.chat.id, "ASSALAMU ALAYKUM", {
+    reply_markup: {
+      keyboard: [["TEST-1"], ["TEST-2"], ["TEST-3"]],
+    },
+  });
 });
