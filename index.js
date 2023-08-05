@@ -10,10 +10,24 @@ bot.on("message", (updated) => {
       inline_keyboard: [
         [
           {
-            text: "Uni bos",
+            text: "Uni-1 bos",
             callback_data: "Meni bos",
           },
+          {
+            text: "Link-1 bos",
+            url: "https://github.com",
+          },
         ], // BU BIRINCHI-QATOR
+        [
+          {
+            text: "Uni-2 bos",
+            callback_data: "Meni bos",
+          },
+          {
+            text: "Link-2 bos",
+            url: "https://github.com",
+          },
+        ], // BU IKKINCHI-QATOR
       ],
     },
   });
